@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const { exec } = require("child_process");
 
-router.post("github", () => {
+router.post("/github", (req, res) => {
   try {
     exec(
       `cd ${__dirname} && git pull origin master`,
